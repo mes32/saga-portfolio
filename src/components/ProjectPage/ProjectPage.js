@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 
 class ProjectPage extends Component {
     componentDidMount() {
-        const action = { type: 'FETCH_PROJECTS' };
-        this.props.dispatch(action);
+        // const action = { type: 'FETCH_PROJECTS' };
+        // this.props.dispatch(action);
     }
 
     render() {

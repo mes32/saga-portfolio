@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 
 class ProjectPage extends Component {
     componentDidMount() {
-        // const action = { type: 'FETCH_PROJECTS' };
-        // this.props.dispatch(action);
+        const action = { type: 'FETCH_PROJECTS' };
+        this.props.dispatch(action);
     }
 
     render() {
@@ -13,10 +13,11 @@ class ProjectPage extends Component {
                 <header className="App-header">
                     <h1>Projects Page</h1>
                 </header>
-                
+                {JSON.stringify(this.props.rs.projects)}
             </div>
         );
     }
 }
 
-export default connect()(ProjectPage);
+const mapReduxStoreToProps = (rs) => ({rs});
+export default connect(mapReduxStoreToProps)(ProjectPage);

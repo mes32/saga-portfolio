@@ -11,7 +11,7 @@ For this weekend challenge, you'll be building a portfolio site to showcase your
 - [x] Use Sagas for API requests to your server
 
 ### Admin Page
-- [ ] Client side route that displays a form allowing you to add a new project to your portfolio
+- [x] Client side route that displays a form allowing you to add a new project to your portfolio
 - [ ] Include a drop down menu with a list of tags
 - [ ] Send data to the server and notify the user of success or failure
 - [ ] List projects by name and allow the user to delete them

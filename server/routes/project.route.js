@@ -7,9 +7,10 @@ const router = express.Router();
 router.get('/', (req, res) => {
     const queryText = `
     SELECT
-        id, name, description, thumbnail, 
-        website, github, date_completed, tag_id 
-    FROM "projects";
+        projects.id, projects.name AS name, description, thumbnail, 
+        website, github, date_completed, tags.name AS tag
+    FROM projects JOIN tags
+    ON projects.tag_id = tags.id;
     `;
     pool.query(queryText).then((response) => {
         res.send(response.rows);

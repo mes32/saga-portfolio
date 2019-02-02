@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import Project from '../Project/Project.js';
+
 class ProjectPage extends Component {
     componentDidMount() {
         const action = { type: 'FETCH_PROJECTS' };
@@ -13,7 +15,9 @@ class ProjectPage extends Component {
                 <header className="App-header">
                     <h1>Projects Page</h1>
                 </header>
-                {JSON.stringify(this.props.rs.projects)}
+                {this.props.rs.projects.map((project) => 
+                    <Project key={project.id} project={project} />    
+                )}
             </div>
         );
     }

@@ -11,7 +11,6 @@ class App extends Component {
         <Router>
           <Route exact path="/" component={ProjectPage} />
         </Router>
-        <p>Empty Page</p>
       </div>
     );
   }

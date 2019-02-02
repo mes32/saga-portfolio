@@ -13,7 +13,7 @@ class ProjectPage extends Component {
         return (
             <div>
                 <header className="App-header">
-                    <h1>Projects Page</h1>
+                    <h1>Michael Stockman</h1>
                 </header>
                 {this.props.rs.projects.map((project) => 
                     <Project key={project.id} project={project} />    

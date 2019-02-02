@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import AdminInputForm from '../AdminInputForm/AdminInputForm.js';
 
 class AdminPage extends Component {
 
@@ -9,7 +11,8 @@ class AdminPage extends Component {
                 <header className="App-header">
                     <h1>Admin Page</h1>
                 </header>
-
+                <Link to="/" >Back to Projects</Link>
+                <AdminInputForm />
             </div>
         );
     }

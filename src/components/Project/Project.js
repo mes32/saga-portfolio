@@ -3,9 +3,17 @@ import './Project.css';
 
 class Project extends Component {
 
+    // Return the project description if available
     putDescription() {
         if (this.props.project.description) {
             return <p>{this.props.project.description}</p>;
+        }
+    }
+
+    // Return the completion date if available
+    putDate() {
+        if (this.props.project.date) {
+            return <p>{this.props.project.date}</p>;
         }
     }
 
@@ -27,14 +35,14 @@ class Project extends Component {
     // Return a link to the project github repo if available
     putGitHub() {
         if (this.props.project.github) {
-            return <a href={this.props.project.github} target="_blank">GitHub</a>;
+            return <a href={this.props.project.github} target="_blank" rel="noopener noreferrer">GitHub</a>;
         }
     }
 
     // Return a link to the project website if available
     putWebsite() {
         if (this.props.project.website) {
-            return <a href={this.props.project.website} target="_blank">Website</a>;
+            return <a href={this.props.project.website} target="_blank" rel="noopener noreferrer">Website</a>;
         }
     }
 
@@ -52,6 +60,7 @@ class Project extends Component {
             <div>
                 <h3>{project.name}</h3>
                 {this.putDescription()}
+                {this.putDate()}
                 {this.putThumbnail()}
                 <p>
                     {this.putGitHub()}&nbsp;

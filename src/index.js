@@ -18,9 +18,10 @@ function* rootSaga() {
     yield takeEvery('FETCH_PROJECTS', fetchProjects);
     yield takeEvery('ADD_PROJECT', addProject);
     yield takeEvery('DELETE_PROJECT', deleteProject);
+    yield takeEvery('FETCH_TAGS', fetchTags);
 }
 
-// Request all projects from server via route GET /projects
+// Request all projects from server via route GET /project
 // Then update the reducer 'projects'
 function* fetchProjects(action) {
     try {
@@ -29,13 +30,13 @@ function* fetchProjects(action) {
         yield put(nextAction);
     } catch (error) {
         // TODO: This should be handled by a dispatch/put
-        const errorMessage = `Error using route GET /projects, ${error}`;
+        const errorMessage = `Error using route GET /project, ${error}`;
         console.log(errorMessage);
         alert(errorMessage);
     }
 }
 
-// Request that a project be added to the server via route POST /projects
+// Request that a project be added to the server via route POST /project
 // Then re-fetch all projects from the server
 function* addProject(action) {
     const project = action.payload;
@@ -48,14 +49,14 @@ function* addProject(action) {
         alert(`Successs: New project '${project.name}' added`);
     } catch (error) {
         // TODO: This should be handled by a dispatch/put
-        const errorMessage = `Error using route POST /projects, ${error}`;
+        const errorMessage = `Error using route POST /project, ${error}`;
         console.log(errorMessage);
         alert(errorMessage);
     }
 }
 
 // Request that a project be deleted from the server via route DELETE 
-// /projects/:id. Then re-fetch all projects from the server
+// /project/:id. Then re-fetch all projects from the server
 function* deleteProject(action) {
     const project = action.payload;
     try {
@@ -64,7 +65,22 @@ function* deleteProject(action) {
         yield put(nextAction);
     } catch (error) {
         // TODO: This should be handled by a dispatch/put
-        const errorMessage = `Error using route DELETE /projects/:id, ${error}`;
+        const errorMessage = `Error using route DELETE /project/:id, ${error}`;
+        console.log(errorMessage);
+        alert(errorMessage);
+    }
+}
+
+// Request all tags (project types) from the server via route GET /tag 
+// Then update reducer 'tags'
+function* fetchTags(action) {
+    try {
+        const response = yield axios.get('/tag');
+        const nextAction = { type: 'SET_TAGS', payload: response.data };
+        yield put(nextAction);
+    } catch (error) {
+        // TODO: This should be handled by a dispatch/put
+        const errorMessage = `Error using route GET /tag, ${error}`;
         console.log(errorMessage);
         alert(errorMessage);
     }

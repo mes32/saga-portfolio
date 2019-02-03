@@ -24,6 +24,11 @@ class AdminPage extends Component {
         };
     }
 
+    componentDidMount() {
+        const action = { type: 'FETCH_TAGS' };
+        this.props.dispatch(action);
+    }
+
     // Handle changes to the 'Name' field
     changeName = (event) => {
         this.setState({

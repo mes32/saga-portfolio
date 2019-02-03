@@ -35,14 +35,14 @@ class Project extends Component {
     // Return a link to the project github repo if available
     putGitHub() {
         if (this.props.project.github) {
-            return <a href={this.props.project.github} target="_blank" rel="noopener noreferrer">GitHub</a>;
+            return <span><a href={this.props.project.github} target="_blank" rel="noopener noreferrer">GitHub</a> ◆ </span>;
         }
     }
 
     // Return a link to the project website if available
     putWebsite() {
         if (this.props.project.website) {
-            return <a href={this.props.project.website} target="_blank" rel="noopener noreferrer">Website</a>;
+            return <span><a href={this.props.project.website} target="_blank" rel="noopener noreferrer">Website</a> ◆ </span>;
         }
     }
 
@@ -63,8 +63,8 @@ class Project extends Component {
                 {this.putDate()}
                 {this.putThumbnail()}
                 <p>
-                    {this.putGitHub()}&nbsp;
-                    {this.putWebsite()}&nbsp;
+                    {this.putGitHub()}
+                    {this.putWebsite()}
                     {this.putTag()}
                 </p>
             </div>

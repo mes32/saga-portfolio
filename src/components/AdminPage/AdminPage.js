@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+
 import AdminInputForm from '../AdminInputForm/AdminInputForm.js';
+import AdminProjectTable from '../AdminProjectTable/AdminProjectTable.js';
 
 class AdminPage extends Component {
 
@@ -13,6 +15,7 @@ class AdminPage extends Component {
                 </header>
                 <Link to="/" >Back to Projects</Link>
                 <AdminInputForm />
+                <AdminProjectTable />
             </div>
         );
     }

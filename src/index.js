@@ -17,6 +17,7 @@ import { put, takeEvery } from 'redux-saga/effects';
 function* rootSaga() {
     yield takeEvery('FETCH_PROJECTS', fetchProjects);
     yield takeEvery('ADD_PROJECT', addProject);
+    yield takeEvery('DELETE_PROJECT', deleteProject);
 }
 
 // Request all projects from server via route GET /projects
@@ -37,17 +38,33 @@ function* fetchProjects(action) {
 // Request that a project be added to the server via route POST /projects
 // Then re-fetch all projects from the server
 function* addProject(action) {
-    const newProject = action.payload;
+    const project = action.payload;
     try {
-        yield axios.post('/project', newProject);
+        yield axios.post('/project', project);
         const nextAction = { type: 'FETCH_PROJECTS' };
         yield put(nextAction);
 
         // TODO: This should be handled by a dispatch/put
-        alert(`Successs: New project '${newProject.name}' added`);
+        alert(`Successs: New project '${project.name}' added`);
     } catch (error) {
         // TODO: This should be handled by a dispatch/put
         const errorMessage = `Error using route POST /projects, ${error}`;
+        console.log(errorMessage);
+        alert(errorMessage);
+    }
+}
+
+// Request that a project be deleted from the server via route DELETE 
+// /projects/:id. Then re-fetch all projects from the server
+function* deleteProject(action) {
+    const project = action.payload;
+    try {
+        yield axios.delete(`/project/${project.id}`);
+        const nextAction = { type: 'FETCH_PROJECTS' };
+        yield put(nextAction);
+    } catch (error) {
+        // TODO: This should be handled by a dispatch/put
+        const errorMessage = `Error using route DELETE /projects/:id, ${error}`;
         console.log(errorMessage);
         alert(errorMessage);
     }

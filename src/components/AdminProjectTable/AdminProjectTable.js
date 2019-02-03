@@ -20,11 +20,9 @@ class AdminProjectTable extends Component {
                     </tr>
                 </thead>
                 <tbody>
-                    {
-                        this.props.rs.projects.map((project) =>
-                            <AdminProjectRow key={project.id} project={project} />
-                        )
-                    }
+                    {this.props.rs.projects.map(
+                        (project) => <AdminProjectRow key={project.id} project={project} />
+                    )}
                 </tbody>
             </table>
         );

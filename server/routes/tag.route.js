@@ -6,8 +6,8 @@ const router = express.Router();
 // Return all projects joined to include their tags
 router.get('/', (req, res) => {
     const queryText = `
-    SELECT
-        ;
+    SELECT id, name
+    FROM tags;
     `;
     pool.query(queryText).then((response) => {
         res.send(response.rows);

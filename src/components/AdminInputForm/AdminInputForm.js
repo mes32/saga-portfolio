@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import TagsDropDown from '../TagsDropDown/TagsDropDown.js';
+
 class AdminPage extends Component {
     constructor(props) {
         super(props);
@@ -24,11 +26,6 @@ class AdminPage extends Component {
         };
     }
 
-    componentDidMount() {
-        const action = { type: 'FETCH_TAGS' };
-        this.props.dispatch(action);
-    }
-
     // Handle changes to the 'Name' field
     changeName = (event) => {
         this.setState({
@@ -48,11 +45,11 @@ class AdminPage extends Component {
         });
     }
 
-    // Handle changes to the 'Tag' field
-    changeTag = (event) => {
+    // Set the tag_id
+    setTagID = (newID) => {
         this.setState({
             ...this.state,
-            tag_id: event.target.value,
+            tag_id: newID,
         });
     }
 
@@ -80,7 +77,7 @@ class AdminPage extends Component {
         this.props.dispatch(action);
     }
 
-    // Display this component on the webpage
+    // Display this component on the page
     render() {
         return (
             <div>
@@ -89,7 +86,7 @@ class AdminPage extends Component {
                     <input onChange={this.changeName} placeholder="Name" type="text" required />
                     {/* TODO: Make Date and Tag more specific input types */}
                     <input onChange={this.changeDate} placeholder="Date" type="text" />
-                    <input onChange={this.changeTag} placeholder="Tag" type="text" />
+                    <TagsDropDown setTagID={this.setTagID} />
                     {/* TODO: Format the form in a way that does not rely on <br /> */}
                     <br />
                     <input onChange={this.changeGitHub} placeholder="GitHub URL" type="text" />
@@ -104,5 +101,4 @@ class AdminPage extends Component {
     }
 }
 
-const mapReduxStoreToProps = (rs) => ({ rs });
-export default connect(mapReduxStoreToProps)(AdminPage);
+export default connect()(AdminPage);

@@ -27,22 +27,29 @@ function* fetchProjects(action) {
         const nextAction = { type: 'SET_PROJECTS', payload: response.data };
         yield put(nextAction);
     } catch (error) {
-        console.log(error);
-        alert(error);
+        // TODO: This should be handled by a dispatch/put
+        const errorMessage = `Error using route GET /projects, ${error}`;
+        console.log(errorMessage);
+        alert(errorMessage);
     }
 }
 
 // Request that a project be added to the server via route POST /projects
 // Then re-fetch all projects from the server
 function* addProject(action) {
-    console.log(action.payload);
+    const newProject = action.payload;
     try {
-        yield axios.post('/project', action.payload);
+        yield axios.post('/project', newProject);
         const nextAction = { type: 'FETCH_PROJECTS' };
         yield put(nextAction);
+
+        // TODO: This should be handled by a dispatch/put
+        alert(`Successs: New project '${newProject.name}' added`);
     } catch (error) {
-        console.log(error);
-        alert(error);
+        // TODO: This should be handled by a dispatch/put
+        const errorMessage = `Error using route POST /projects, ${error}`;
+        console.log(errorMessage);
+        alert(errorMessage);
     }
 }
 

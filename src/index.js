@@ -10,22 +10,79 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import logger from 'redux-logger';
 // Import saga middleware
-import createSagaMiddleware, { takeEvery } from 'redux-saga';
-import { put } from 'redux-saga/effects';
+import createSagaMiddleware from 'redux-saga';
+import { put, takeEvery } from 'redux-saga/effects';
 
 // Create the rootSaga generator function
 function* rootSaga() {
     yield takeEvery('FETCH_PROJECTS', fetchProjects);
+    yield takeEvery('ADD_PROJECT', addProject);
+    yield takeEvery('DELETE_PROJECT', deleteProject);
+    yield takeEvery('FETCH_TAGS', fetchTags);
 }
 
-function* fetchProjects() {
+// Request all projects from server via route GET /project
+// Then update the reducer 'projects'
+function* fetchProjects(action) {
     try {
         const response = yield axios.get('/project');
-        const action = { type: 'SET_PROJECTS', payload: response.data };
-        yield put(action);
+        const nextAction = { type: 'SET_PROJECTS', payload: response.data };
+        yield put(nextAction);
     } catch (error) {
-        console.log(error);
-        alert(error);
+        // TODO: This should be handled by a dispatch/put
+        const errorMessage = `Error using route GET /project, ${error}`;
+        console.log(errorMessage);
+        alert(errorMessage);
+    }
+}
+
+// Request that a project be added to the server via route POST /project
+// Then re-fetch all projects from the server
+function* addProject(action) {
+    const project = action.payload;
+    try {
+        yield axios.post('/project', project);
+        const nextAction = { type: 'FETCH_PROJECTS' };
+        yield put(nextAction);
+
+        // TODO: This should be handled by a dispatch/put
+        alert(`Successs: New project '${project.name}' added`);
+    } catch (error) {
+        // TODO: This should be handled by a dispatch/put
+        const errorMessage = `Error using route POST /project, ${error}`;
+        console.log(errorMessage);
+        alert(errorMessage);
+    }
+}
+
+// Request that a project be deleted from the server via route DELETE 
+// /project/:id. Then re-fetch all projects from the server
+function* deleteProject(action) {
+    const project = action.payload;
+    try {
+        yield axios.delete(`/project/${project.id}`);
+        const nextAction = { type: 'FETCH_PROJECTS' };
+        yield put(nextAction);
+    } catch (error) {
+        // TODO: This should be handled by a dispatch/put
+        const errorMessage = `Error using route DELETE /project/:id, ${error}`;
+        console.log(errorMessage);
+        alert(errorMessage);
+    }
+}
+
+// Request all tags (project types) from the server via route GET /tag 
+// Then update reducer 'tags'
+function* fetchTags(action) {
+    try {
+        const response = yield axios.get('/tag');
+        const nextAction = { type: 'SET_TAGS', payload: response.data };
+        yield put(nextAction);
+    } catch (error) {
+        // TODO: This should be handled by a dispatch/put
+        const errorMessage = `Error using route GET /tag, ${error}`;
+        console.log(errorMessage);
+        alert(errorMessage);
     }
 }
 

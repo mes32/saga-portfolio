@@ -16,13 +16,30 @@ import { put, takeEvery } from 'redux-saga/effects';
 // Create the rootSaga generator function
 function* rootSaga() {
     yield takeEvery('FETCH_PROJECTS', fetchProjects);
+    yield takeEvery('ADD_PROJECT', addProject);
 }
 
-function* fetchProjects() {
+// Request all projects from server via route GET /projects
+// Then update the reducer 'projects'
+function* fetchProjects(action) {
     try {
         const response = yield axios.get('/project');
-        const action = { type: 'SET_PROJECTS', payload: response.data };
-        yield put(action);
+        const nextAction = { type: 'SET_PROJECTS', payload: response.data };
+        yield put(nextAction);
+    } catch (error) {
+        console.log(error);
+        alert(error);
+    }
+}
+
+// Request that a project be added to the server via route POST /projects
+// Then re-fetch all projects from the server
+function* addProject(action) {
+    console.log(action.payload);
+    try {
+        yield axios.post('/project', action.payload);
+        const nextAction = { type: 'FETCH_PROJECTS' };
+        yield put(nextAction);
     } catch (error) {
         console.log(error);
         alert(error);

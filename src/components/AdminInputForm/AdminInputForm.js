@@ -6,8 +6,8 @@ class AdminPage extends Component {
         super(props);
         this.state = {
             name: '',
-            date: '',
-            tag: '',
+            date_completed: '',
+            tag_id: 0,
             github: '',
             website: '',
             description: ''
@@ -16,8 +16,8 @@ class AdminPage extends Component {
         // TODO: Remove this initial state used for testing
         this.state = {
             name: 'RAAQ! Pizza Parlour',
-            date: '2019-01-25',
-            tag: 'React',
+            date_completed: '2019-01-25',
+            tag_id: 1,
             github: 'https://github.com/mes32/raaq-pizza-parlour',
             website: '',
             description: 'An example CRUD application that allows users to order pizza'
@@ -39,7 +39,7 @@ class AdminPage extends Component {
     changeDate = (event) => {
         this.setState({
             ...this.state,
-            date: event.target.value,
+            date_completed: event.target.value,
         });
     }
 
@@ -47,7 +47,7 @@ class AdminPage extends Component {
     changeTag = (event) => {
         this.setState({
             ...this.state,
-            tag: event.target.value,
+            tag_id: event.target.value,
         });
     }
 
@@ -71,6 +71,8 @@ class AdminPage extends Component {
     submit = (event) => {
         event.preventDefault();
         console.log(this.state);
+        const action = { type: 'ADD_PROJECT', payload: this.state };
+        this.props.dispatch(action);
     }
 
     // Display this component on the webpage

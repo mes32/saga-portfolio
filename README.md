@@ -1,55 +1,94 @@
-# React Redux with Sagas
-For this weekend challenge, you'll be building a portfolio site to showcase your work. 
+# Personal Project Portfolio
+This is a portfolio site to showcase my programming work. The portfolio itself is also a full stack web application that I built to practice React, Redux, and Redux-Saga.
 
-## Feature List
+## Built With
+- `User Interface` - [React](https://reactjs.org/)
+- `Client` - React, [Redux](https://redux.js.org/) for conveniently sharing data between components, [axios](https://www.npmjs.com/package/axios) for making HTTP requests to the server-side, and [redux-saga](https://www.npmjs.com/package/redux-saga) to allow centralizing the functionality for making database requests.
+- `Server` - [Node.js](https://nodejs.org/en/) and the [Express](https://expressjs.com/) framework for handling HTTP requests from the client-side
+- `Database` - [PostgreSQL](https://www.postgresql.org/) via the Node.js library [pg](https://www.npmjs.com/package/pg)
 
-### Project Page
-- [x] Client side route that displays projects that are stored in the database
-- [x] Each project should conditionally render a name, description, thumbnail, website, date complete and a tag. Many of the fields are optional, only show properties that aren't null.
-- [x] Include a link to GitHub that opens in a new window
-- [x] Add your name at the top of the page
-- [x] Use Sagas for API requests to your server
+## Getting Started
+The following steps should get a copy of the project running on your local machine. See the deployment section for notes on how to deploy the project on a live system. I recommend using the package manager [`Homebrew`](https://brew.sh/) for installing any needed prerequisites.
 
-### Admin Page
-- [x] Client side route that displays a form
-- [x] Form allows you to add a new project to your portfolio
-- [ ] Include a drop down menu with a list of tags
-- [x] Send data to the server and notify the user of success or failure
-- [x] List projects by name and allow the user to delete them
-- [x] Include a button that navigates to the project page
+### 1. Prerequisite Software
+- [Node.js](https://nodejs.org/en/)
+- [`PostgreSQL`](https://www.postgresql.org/)
 
-### General Tasks
-- [x] Commit your code frequently! You should have at least 15 commits on a project of this size. Use branches to help break down your features.
-- [ ] Comment your code.
-- [ ] Update this README to include a description of the project in your own words.
+```bash
+# To install prerequisites w/ Homebrew...
+brew update
+brew install node
+brew install postgresql
+```
 
-## Wireframes
-> NOTE: Feel free to modify the styling and layout of content on the page. 
+### 2. Installation
+```bash
+# 1. Clone or download this project
+git clone https://github.com/mes32/saga-portfolio
 
-### Project Page
-<img src="https://github.com/PrimeAcademy/weekend-6-portfolio/raw/master/wireframes/project_page.png" width="560">
+# 2. Create a database named 'portfolio'
+createdb portfolio
 
+# 3. Create tables named 'tags' and 'projects' inside the portfolio database
+#    - See portfolio.sql for detailed SQL instructions
 
-### Admin Page
-<img src="https://github.com/PrimeAcademy/weekend-6-portfolio/raw/master/wireframes/admin_page.png" width="560">
+# 4. Install node dependencies using NPM
+npm install
 
-## Stretch Goals
-- [ ] Use the GitHub API to get user information to display at the top of the page
-- [ ] Improve styling on the page using Material UI
+# 5. Start the Node.js server (runs on port 5000)
+npm run server
+
+# 6. Start the React.js client-side development server (runs on port 3000)
+npm run client
+```
+
+## Screen Shots
+
+### Project Page (Wireframe)
+<img src="./wireframes/project_page.png" width="560">
+
+### Admin Page (Wireframe)
+<img src="./wireframes/admin_page.png" width="560">
+
+### Project Page (v0.0.0)
+<img src="./wireframes/screen-shot-projects-v0.0.0.png" width="560">
+
+### Admin Page (v0.0.0)
+<img src="./wireframes/screen-shot-admin-v0.0.0.png" width="560">
+
+## Documentation
+Original [scope/instructions](./scope.md) document from [Prime Digital Academy](https://primeacademy.io/) Weekend Assignment #6.
+
+### Completed Features
+- [x] Client-side route displays projects that are stored in the database
+- [x] Each project conditionally renders a name, description, thumbnail, website, date complete, and a tag.
+- [x] Includes links to each project's GitHub page (opens in a new tab)
+- [x] Client-side uses Sagas (i.e. redux-saga) to centralize API requests to server-side
+- [x] Admin page client-side route
+- [x] Admin page includes a form that allows adding new projects to the portfolio
+- [x] Admin page lists projects by name (allows deleting projects)
+
+### Next Steps
+- [ ] *Try to reduce redundant input handlers in 'AdminInputForm'*
+- [ ] *Use a calendar style input field for dates in 'AdminInputForm'*
+- [ ] Use the GitHub API to get user information and display at the top of the page
+- [ ] *Improve styling using some basic CSS*
+- [ ] Improve styling using Material UI
 - [ ] Include a form on the admin page for adding new tags
-- [ ] Implement additional features of the GitHub API
+- [ ] Use the GitHub API to get data related to each project and update
+- [ ] *Use Sweet Alert for alert messages*
+- [ ] *Allow image upload when adding new projects*
+- [ ] Allow adding new project tags on the admin page
+- [ ] Allow taggin projects with multiple tags (requires a many-to-many database relationship)
+- [ ] *Deploy to Heroku*
 
-## Notes
+## Deployment
+(Coming soon...)
 
-### Tags
-We've given you some starter tags. Feel free to change or add some.
+## Author
+* Michael Stockman
 
-For base mode, you should only include **one** tag per project. This gives you a one to many relationship. We'll cover many to many SQL queries next week. 
-
-### Screenshots
-To take a screenshot of your project, use `Command-Shift-4` on your mac. It turns the cursor into a crosshair, which you can drag to select a portion of your screen to capture. The image will appear on your desktop.
-
-Place thumbnail images in the `public/images` folder. 
-
-**Do not implement image upload for base mode.**
-
+## Acknowledgments
+* [James Tucker](https://github.com/jamesctucker) for explaining how to have HTML links open in a new tab when using React
+* [Britt Carter](https://github.com/brittbmh) for explaining how to combine multiple currying functions into one export statement
+* My instructors at Prime: [Chris](https://github.com/christopher-black), [Ally](https://github.com/Lysautumn), and [Kris](https://github.com/kdszafranski).

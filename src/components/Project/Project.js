@@ -53,7 +53,7 @@ class Project extends Component {
         }
     }
 
-    // Display this component on the page
+    // Display this component on the DOM
     render() {
         const project = this.props.project;
         return (

@@ -45,7 +45,7 @@ class AdminPage extends Component {
         });
     }
 
-    // Set the tag_id
+    // Set the value of tag_id
     setTagID = (newID) => {
         this.setState({
             ...this.state,
@@ -69,7 +69,7 @@ class AdminPage extends Component {
         });
     }
 
-    // Handle presses to the 'Submit' button
+    // Handle 'Submit' button was pressed
     submit = (event) => {
         event.preventDefault();
         console.log(this.state);
@@ -77,14 +77,14 @@ class AdminPage extends Component {
         this.props.dispatch(action);
     }
 
-    // Display this component on the page
+    // Display this component on the DOM
     render() {
         return (
             <div>
                 <h2>Add New Project</h2>
                 <form onSubmit={this.submit}>
                     <input onChange={this.changeName} placeholder="Name" type="text" required />
-                    {/* TODO: Make Date and Tag more specific input types */}
+                    {/* TODO: Make Date a more specific input type */}
                     <input onChange={this.changeDate} placeholder="Date" type="text" />
                     <TagsDropDown setTagID={this.setTagID} />
                     {/* TODO: Format the form in a way that does not rely on <br /> */}

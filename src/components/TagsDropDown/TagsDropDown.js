@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 
 class TagsDropDown extends Component {
 
-    // After this component mounts fetch all tags (project types) from the 
-    // server
+    // As soon as this component mounts, dispatch saga to fetch all tags 
+    // (i.e. project technologies).
     componentDidMount() {
         const action = { type: 'FETCH_TAGS' };
         this.props.dispatch(action);
@@ -15,7 +15,7 @@ class TagsDropDown extends Component {
         this.props.setTagID(event.target.value);
     }
 
-    // Display this component on the page
+    // Display this component on the DOM
     render() {
         return (
             <select onChange={this.selectedTag} defaultValue="">

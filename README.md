@@ -43,15 +43,15 @@ npm run client
 ```
 
 ## Screen Shots
-### Wireframe: Project Page
+
+### Project Page (Wireframe)
 <img src="./wireframes/project_page.png" width="560">
-### Wireframe: Admin Page
+### Admin Page (Wireframe)
 <img src="./wireframes/admin_page.png" width="560">
 
-### v0.0.0: Project Page
+### Project Page (v0.0.0)
 <img src="./wireframes/screen-shot-projects-v0.0.0.png" width="560">
-
-### v0.0.0: Admin Page
+### Admin Page (v0.0.0)
 <img src="./wireframes/screen-shot-admin-v0.0.0.png" width="560">
 
 ## Documentation
@@ -62,7 +62,6 @@ Original [scope/instructions](./scope.md) document from [Prime Digital Academy](
 - [x] Each project conditionally renders a name, description, thumbnail, website, date complete, and a tag.
 - [x] Includes links to each project's GitHub page (opens in a new tab)
 - [x] Client-side uses Sagas (i.e. redux-saga) to centralize API requests to server-side
-
 - [x] Admin page client-side route
 - [x] Admin page includes a form that allows adding new projects to the portfolio
 - [x] Admin page lists projects by name (allows deleting projects)
@@ -88,6 +87,6 @@ Original [scope/instructions](./scope.md) document from [Prime Digital Academy](
 * Michael Stockman
 
 ## Acknowledgments
-[James Tucker](https://github.com/jamesctucker) for explaining how to have HTML links open in a new tab when using React
-[Britt Carter](https://github.com/brittbmh) for explaining how to combine multiple currying functions into one export statement
+* [James Tucker](https://github.com/jamesctucker) for explaining how to have HTML links open in a new tab when using React
+* [Britt Carter](https://github.com/brittbmh) for explaining how to combine multiple currying functions into one export statement
 * My instructors at Prime: [Chris](https://github.com/christopher-black), [Ally](https://github.com/Lysautumn), and [Kris](https://github.com/kdszafranski).

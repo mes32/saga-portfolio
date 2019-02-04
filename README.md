@@ -46,11 +46,13 @@ npm run client
 
 ### Project Page (Wireframe)
 <img src="./wireframes/project_page.png" width="560">
+
 ### Admin Page (Wireframe)
 <img src="./wireframes/admin_page.png" width="560">
 
 ### Project Page (v0.0.0)
 <img src="./wireframes/screen-shot-projects-v0.0.0.png" width="560">
+
 ### Admin Page (v0.0.0)
 <img src="./wireframes/screen-shot-admin-v0.0.0.png" width="560">
 

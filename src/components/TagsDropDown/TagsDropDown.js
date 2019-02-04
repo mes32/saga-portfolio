@@ -18,8 +18,8 @@ class TagsDropDown extends Component {
     // Display this component on the DOM
     render() {
         return (
-            <select onChange={this.selectedTag} defaultValue="">
-                <option value="" disabled hidden> -- Select a Tag -- </option>
+            <select onChange={this.selectedTag} defaultValue="" required>
+                <option value="" disabled hidden>-- Select a Tag --</option>
                 {this.props.rs.tags.map(
                     (tag) => <option key={tag.id} value={tag.id}>{tag.name}</option>
                 )}

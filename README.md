@@ -69,9 +69,11 @@ Original [scope/instructions](./scope.md) document from [Prime Digital Academy](
 - [x] Admin page lists projects by name (allows deleting projects)
 
 ### Next Steps
-- [ ] *Try to reduce redundant input handlers in 'AdminInputForm'*
 - [ ] *Use a calendar style input field for dates in 'AdminInputForm'*
+- [ ] *Prompt admin before deleting projects*
 - [ ] Use the GitHub API to get user information and display at the top of the page
+- [ ] *Handle catch statements better in sagas by using yield*
+- [ ] *Move sagas and reducers to their own files*
 - [ ] *Improve styling using some basic CSS*
 - [ ] Improve styling using Material UI
 - [ ] Include a form on the admin page for adding new tags

@@ -19,29 +19,19 @@ class AdminPage extends Component {
         this.state = {
             name: 'RAAQ! Pizza Parlour',
             date_completed: '2019-01-25',
-            tag_id: 1,
+            tag_id: 0,
             github: 'https://github.com/mes32/raaq-pizza-parlour',
             website: '',
             description: 'An example CRUD application that allows users to order pizza'
         };
     }
 
-    // Handle changes to the 'Name' field
-    changeName = (event) => {
+    // Handle changes to the text input field
+    changeTextInput = (event) => {
+        console.log(event.target);
         this.setState({
             ...this.state,
-            name: event.target.value,
-        });
-    }
-
-    // TODO: Handle changes to all these text fields using a single onChange 
-    // function
-
-    // Handle changes to the 'Date' field
-    changeDate = (event) => {
-        this.setState({
-            ...this.state,
-            date_completed: event.target.value,
+            [event.target.name]: event.target.value,
         });
     }
 
@@ -50,22 +40,6 @@ class AdminPage extends Component {
         this.setState({
             ...this.state,
             tag_id: newID,
-        });
-    }
-
-    // Handle changes to the 'GitHub' field
-    changeGitHub = (event) => {
-        this.setState({
-            ...this.state,
-            github: event.target.value,
-        });
-    }
-
-    // Handle changes to the 'Website' field
-    changeWebsite = (event) => {
-        this.setState({
-            ...this.state,
-            website: event.target.value,
         });
     }
 
@@ -83,15 +57,15 @@ class AdminPage extends Component {
             <div>
                 <h2>Add New Project</h2>
                 <form onSubmit={this.submit}>
-                    <input onChange={this.changeName} placeholder="Name" type="text" required />
+                    <input onChange={this.changeTextInput} name="name" placeholder="Name" type="text" required />
                     {/* TODO: Make Date a more specific input type */}
-                    <input onChange={this.changeDate} placeholder="Date" type="text" />
+                    <input onChange={this.changeTextInput} name="date_completed" placeholder="Date" type="text" />
                     <TagsDropDown setTagID={this.setTagID} />
                     {/* TODO: Format the form in a way that does not rely on <br /> */}
                     <br />
-                    <input onChange={this.changeGitHub} placeholder="GitHub URL" type="text" />
-                    <input onChange={this.changeWebsite} placeholder="Website URL" type="text" />
-                    <input onChange={this.changeDescription} placeholder="Description" type="text" />
+                    <input onChange={this.changeTextInput} name="github" placeholder="GitHub URL" type="text" />
+                    <input onChange={this.changeTextInput} name="website" placeholder="Website URL" type="text" />
+                    <input onChange={this.changeTextInput} name="description" placeholder="Description" type="text" />
                     {/* TODO: Format the form in a way that does not rely on <br /> */}
                     <br />
                     <input type="submit" value="Submit" />

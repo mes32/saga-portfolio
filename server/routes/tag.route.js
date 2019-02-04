@@ -3,7 +3,8 @@ const pool = require('../modules/pool.js');
 
 const router = express.Router();
 
-// Return all projects joined to include their tags
+// Route: GET /tag
+// Return all project tags
 router.get('/', (req, res) => {
     const queryText = `
     SELECT id, name

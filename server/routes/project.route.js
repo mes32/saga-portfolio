@@ -3,7 +3,8 @@ const pool = require('../modules/pool.js');
 
 const router = express.Router();
 
-// Return all projects joined to include their tags
+// Route: GET /project
+// Returns all projects (also includes their tags thru join w/ tags table)
 router.get('/', (req, res) => {
     const queryText = `
     SELECT
@@ -22,6 +23,7 @@ router.get('/', (req, res) => {
     });
 });
 
+// Route: POST /project
 // Insert a new project
 router.post('/', (req, res) => {
     const project = req.body;
@@ -48,7 +50,8 @@ router.post('/', (req, res) => {
     });
 });
 
-// Delete an existing project based on project.id
+// Route: DELETE /project/:id
+// Delete an existing project based on its project.id
 router.delete('/:id', (req, res) => {
     const id = req.params.id;
     const queryText = `

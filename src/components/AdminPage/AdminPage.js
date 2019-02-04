@@ -7,6 +7,7 @@ import AdminProjectTable from '../AdminProjectTable/AdminProjectTable.js';
 
 class AdminPage extends Component {
 
+    // Display this component on the DOM
     render() {
         return (
             <div>

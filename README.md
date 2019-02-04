@@ -69,7 +69,6 @@ Original [scope/instructions](./scope.md) document from [Prime Digital Academy](
 - [x] Admin page lists projects by name (allows deleting projects)
 
 ### Next Steps
-- [ ] *Use a calendar style input field for dates in 'AdminInputForm'*
 - [ ] *Prompt admin before deleting projects*
 - [ ] Use the GitHub API to get user information and display at the top of the page
 - [ ] *Handle catch statements better in sagas by using yield*

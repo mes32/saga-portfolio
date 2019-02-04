@@ -27,8 +27,7 @@ class AdminPage extends Component {
     }
 
     // Handle changes to the text input field
-    changeTextInput = (event) => {
-        console.log(event.target);
+    changeInput = (event) => {
         this.setState({
             ...this.state,
             [event.target.name]: event.target.value,
@@ -57,15 +56,15 @@ class AdminPage extends Component {
             <div>
                 <h2>Add New Project</h2>
                 <form onSubmit={this.submit}>
-                    <input onChange={this.changeTextInput} name="name" placeholder="Name" type="text" required />
+                    <input onChange={this.changeInput} name="name" placeholder="Name" type="text" required />
                     {/* TODO: Make Date a more specific input type */}
-                    <input onChange={this.changeTextInput} name="date_completed" placeholder="Date" type="text" />
+                    <input onChange={this.changeInput} name="date_completed" placeholder="Date" type="date" />
                     <TagsDropDown setTagID={this.setTagID} />
                     {/* TODO: Format the form in a way that does not rely on <br /> */}
                     <br />
-                    <input onChange={this.changeTextInput} name="github" placeholder="GitHub URL" type="text" />
-                    <input onChange={this.changeTextInput} name="website" placeholder="Website URL" type="text" />
-                    <input onChange={this.changeTextInput} name="description" placeholder="Description" type="text" />
+                    <input onChange={this.changeInput} name="github" placeholder="GitHub URL" type="text" />
+                    <input onChange={this.changeInput} name="website" placeholder="Website URL" type="text" />
+                    <input onChange={this.changeInput} name="description" placeholder="Description" type="text" />
                     {/* TODO: Format the form in a way that does not rely on <br /> */}
                     <br />
                     <input type="submit" value="Submit" />

@@ -1,21 +1,21 @@
 # Personal Project Portfolio
-This is a portfolio site to showcase my programming work. It is a full stack web application that I built to practice React, Redux, and Redux-Saga.
+This is a portfolio site to showcase my programming work. The portfolio itself is also a full stack web application that I built to practice React, Redux, and Redux-Saga.
 
 ## Built With
 - `User Interface` - [React](https://reactjs.org/)
-- `Client` - React, [Redux](https://redux.js.org/) for conveniently sharing data between components, [axios](https://www.npmjs.com/package/axios) for making HTTP requests to the server-side, and [redux-saga](https://www.npmjs.com/package/redux-saga) to allow centralizing the functions for making database requests.
+- `Client` - React, [Redux](https://redux.js.org/) for conveniently sharing data between components, [axios](https://www.npmjs.com/package/axios) for making HTTP requests to the server-side, and [redux-saga](https://www.npmjs.com/package/redux-saga) to allow centralizing the functionality for making database requests.
 - `Server` - [Node.js](https://nodejs.org/en/) and the [Express](https://expressjs.com/) framework for handling HTTP requests from the client-side
 - `Database` - [PostgreSQL](https://www.postgresql.org/) via the Node.js library [pg](https://www.npmjs.com/package/pg)
 
 ## Getting Started
-The following steps should get a copy of the project running on your local machine. See the deployment section for notes on how to deploy the project on a live system. I recommend using the program [`Homebrew`](https://brew.sh/) for installing any needed prerequisites.
+The following steps should get a copy of the project running on your local machine. See the deployment section for notes on how to deploy the project on a live system. I recommend using the package manager [`Homebrew`](https://brew.sh/) for installing any needed prerequisites.
 
 ### 1. Prerequisite Software
 - [Node.js](https://nodejs.org/en/)
 - [`PostgreSQL`](https://www.postgresql.org/)
 
 ```bash
-# To get prerequisites w/ Homebrew...
+# To install prerequisites w/ Homebrew...
 brew update
 brew install node
 brew install postgresql
@@ -29,7 +29,7 @@ git clone https://github.com/mes32/saga-portfolio
 # 2. Create a database named 'portfolio'
 createdb portfolio
 
-# 3. Create tables in 'portfolio' named 'projects' and 'tags'
+# 3. Create tables named 'tags' and 'projects' inside the portfolio database
 #    - See portfolio.sql for detailed SQL instructions
 
 # 4. Install node dependencies using NPM

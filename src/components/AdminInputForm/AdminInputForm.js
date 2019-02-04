@@ -8,21 +8,11 @@ class AdminPage extends Component {
         super(props);
         this.state = {
             name: '',
-            date_completed: '',
+            date_completed: null,
             tag_id: 0,
             github: '',
             website: '',
             description: ''
-        };
-
-        // TODO: Remove this initial state used for testing
-        this.state = {
-            name: 'RAAQ! Pizza Parlour',
-            date_completed: '2019-01-25',
-            tag_id: 0,
-            github: 'https://github.com/mes32/raaq-pizza-parlour',
-            website: '',
-            description: 'An example CRUD application that allows users to order pizza'
         };
     }
 
@@ -57,16 +47,13 @@ class AdminPage extends Component {
                 <h2>Add New Project</h2>
                 <form onSubmit={this.submit}>
                     <input onChange={this.changeInput} name="name" placeholder="Name" type="text" required />
-                    {/* TODO: Make Date a more specific input type */}
                     <input onChange={this.changeInput} name="date_completed" placeholder="Date" type="date" />
                     <TagsDropDown setTagID={this.setTagID} />
-                    {/* TODO: Format the form in a way that does not rely on <br /> */}
-                    <br />
+                    <br /> {/* TODO: Eventually remove <br /> */}
                     <input onChange={this.changeInput} name="github" placeholder="GitHub URL" type="text" />
                     <input onChange={this.changeInput} name="website" placeholder="Website URL" type="text" />
                     <input onChange={this.changeInput} name="description" placeholder="Description" type="text" />
-                    {/* TODO: Format the form in a way that does not rely on <br /> */}
-                    <br />
+                    <br /> {/* TODO: Eventually remove <br /> */}
                     <input type="submit" value="Submit" />
                 </form>
             </div>

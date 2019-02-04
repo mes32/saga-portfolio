@@ -70,8 +70,8 @@ Original [scope/instructions](./scope.md) document from [Prime Digital Academy](
 
 ### Next Steps
 - [ ] *Prompt admin before deleting projects*
-- [ ] Use the GitHub API to get user information and display at the top of the page
-- [ ] *Handle catch statements better in sagas by using yield*
+- [ ] Use the GitHub API to get user information and display at the top of the page: photo, name, username, location, github.io, number of repos 
+- [ ] *Handle catch statements better in sagas by using yield?*
 - [ ] *Move sagas and reducers to their own files*
 - [ ] *Improve styling using some basic CSS*
 - [ ] Improve styling using Material UI
